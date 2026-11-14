@@ -1,0 +1,16 @@
+# Generated scan data
+scans/
+**/scans/
+*.nmap
+*.gnmap
+*.xml
+
+# Local state, credentials, and private keys
+*.state
+.env
+.env.*
+credentials*
+secrets*
+*.key
+*.pem
+id_rsa*
