@@ -2,21 +2,21 @@
 
 A personal collection of small scripts for authorized OSCP lab and exam-scope work.
 
-## Nmap TCP and UDP scans
+## Scripts
 
-The scripts prompt for one IPv4 address, request sudo access, then run a discovery scan followed by service detection for the discovered ports.
+| Script | Function |
+| --- | --- |
+| [nmap-tcp.sh](recon/nmap/nmap-tcp.sh) | Prompts for an IPv4 address, scans all TCP ports, extracts ports Nmap reports open, then runs default scripts and version detection on those ports. |
+| [nmap-udp.sh](recon/nmap/nmap-udp.sh) | Prompts for an IPv4 address, scans the top 1,000 UDP ports, extracts ports Nmap reports open or open\|filtered, then runs UDP service detection on those ports. |
+
+Both scripts request sudo access and display Nmap output in the terminal. They also save Nmap's `.nmap`, `.gnmap`, and `.xml` files under `scans/<IP>/`; Git ignores those generated scan files.
+
+### Run
 
 ```bash
 ./recon/nmap/nmap-tcp.sh
 ./recon/nmap/nmap-udp.sh
 ```
-
-Results are saved in per-target folders under `scans/<IP>/`:
-
-- TCP: `nmap-tcp-scan.*` and `nmap-tcp-service-scan.*`
-- UDP: `nmap-udp-scan.*` and `nmap-udp-service-scan.*`
-
-Each Nmap scan produces `.nmap`, `.gnmap`, and `.xml` files. Scan output is ignored by Git.
 
 ### Requirements
 
